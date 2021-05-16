@@ -1,0 +1,38 @@
+H2 DB Console
+
+http://localhost:9090/h2-console/login.do?jsessionid=045c6fcf2cfa9f1062983bdb25adf635
+
+
+
+Bean vs Component:-
+
+Bean is used at method level and we need to create the object, return it in the method
+Bean is used for the classes of Other libraries like creating RestTemplate object( we use bean)
+Bean creates instance variable with the method name provided.
+
+Component is used at Class level
+Component is used for Classes created by us in our micro service.
+Component instance is created by spring container by scanning the class path
+Component instance variable is created by camel casing of the class name.
+
+
+Ways to create object in Spring Container:-
+(https://www.youtube.com/watch?v=-ebmi2hfvWE)
+1. using ApplicationContext object and use api to get the object with class name or string
+2. using @Lookup for the method below we will get MyObj1 by calling myobj1() method.
+        class A {
+       @Lookup
+       public MyObj1 myobj1() {
+
+                        }
+
+            }
+3. using javax.inject.Provider of Java SDK
+ public Provider<MyObj1> myObj1Provider
+ myObj1Provider.get() to get the object
+4. use ObjectFactory from Spring framework
+ public ObjectFactory<MyObj1> myObj1Provider
+ myObj1Provider.getObject() to get the object
+
+
+
